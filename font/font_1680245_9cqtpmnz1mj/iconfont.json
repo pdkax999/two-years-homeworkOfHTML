@@ -1,0 +1,58 @@
+{
+  "id": "1680245",
+  "name": "qwer",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "1654619",
+      "name": "糖果",
+      "font_class": "tangguo",
+      "unicode": "e620",
+      "unicode_decimal": 58912
+    },
+    {
+      "icon_id": "3213532",
+      "name": "食材",
+      "font_class": "shicai",
+      "unicode": "e61b",
+      "unicode_decimal": 58907
+    },
+    {
+      "icon_id": "4079891",
+      "name": "菜谱管理",
+      "font_class": "caipuguanli",
+      "unicode": "e68e",
+      "unicode_decimal": 59022
+    },
+    {
+      "icon_id": "4992781",
+      "name": "首页-菜谱",
+      "font_class": "shouye-caipu",
+      "unicode": "e627",
+      "unicode_decimal": 58919
+    },
+    {
+      "icon_id": "12877113",
+      "name": "专题",
+      "font_class": "zhuanti1",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "13953867",
+      "name": "点赞",
+      "font_class": "cha2",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "14628321",
+      "name": "搜索--1",
+      "font_class": "sousuo",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    }
+  ]
+}

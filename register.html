@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="icon" href="./favicon.ico">
+    <title>注册</title>
+    <style>
+        .header {
+            width: 100%;
+            height: 55px;
+            border-bottom: solid 1.5px #272729;
+        }
+
+        .header-x {
+            width: 1200px;
+            height: 55px;
+
+
+        }
+
+        .header-x img {
+            float: left;
+            vertical-align: top;
+        }
+
+        .header-x ul {
+            width: 50.8%;
+            float: right;
+
+        }
+
+        .header-x ul li a {
+            color: #CECED1;
+            font-size: 18px;
+            float: left;
+            display: block;
+            line-height: 50px;
+            margin-right: 15px;
+
+        }
+
+        .mian {
+            width: 100%;
+            height: 180px;
+
+            text-align: center;
+            font-size: 40px;
+            color: #fff;
+            line-height: 180px;
+        }
+
+        .getstyle {
+            width: 100%;
+            height: 1016px;
+        }
+
+        .getstyle-x {
+            width: 600px;
+            height: 646px;
+            padding-top: 1px;
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius: 24px;
+            box-sizing: border-box;
+            box-shadow: 0px 0px 100px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 0 black
+        }
+
+        .getstyle-y {
+            width: 480px;
+
+          
+            margin: 0 auto;
+        }
+
+        .proto {
+            width: 480px;
+            height: 84px;
+            line-height: 84px;
+            padding-top: 14px;
+            font-size: 30px;
+            text-align: center;
+            color: #000;
+
+
+        }
+
+        .proto-x {
+            width: 100%;
+            height: 44px;
+            margin-bottom: 20px;
+            background-color: red;
+            color: #fff;
+            line-height: 44px;
+            font-size: 20px;
+            text-align: center;
+            background-color: #ff6700;
+            display: none;
+        }
+
+        .form {
+            width: 100%;
+
+        }
+
+        .form #input:first-child {
+            outline: none;
+            box-sizing: border-box;
+            height: 56px;
+            width: 480px;
+            border: 1px solid #ddd;
+            border-radius: 28px;
+            line-height: 26px;
+            font-size: 18px;
+            color: #333;
+            padding: 14px 20px;
+            font-family: PingFang SC, "Hiragino Sans GB", "å†¬é’é»‘ä½“", "Microsoft Yahei", "å¾®è½¯é›…é»‘";
+        }
+
+
+
+        #none {
+            height: 24px;
+            line-height: 24px;
+            font-size: 13px;
+            margin-bottom: 10px;
+            background: url(./img/img.png) no-repeat;
+            padding-left: 20px;
+            margin-left: 20px;
+            background-color: #fFF;
+            color: #ACDFF8;
+            display: none;
+
+
+
+
+
+        }
+
+        .box1 {
+            height: 24px;
+            line-height: 24px;
+            margin-bottom: 10px;
+
+
+        }
+
+        #inputon {
+            outline: none;
+            box-sizing: border-box;
+            height: 56px;
+            width: 300px;
+            border: 1px solid #ddd;
+            border-radius: 28px;
+            line-height: 26px;
+            font-size: 18px;
+            color: #333;
+            padding: 14px 20px;
+            font-family: PingFang SC, "Hiragino Sans GB", "å†¬é’é»‘ä½“", "Microsoft Yahei", "å¾®è½¯é›…é»‘";
+        }
+
+        #footer {
+            width: 160px;
+            float: right;
+            background: #8fc31f;
+            display: block;
+            color: #fff;
+            line-height: 56px;
+            height: 56px;
+            border-radius: 28px;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        #noneon {
+            height: 24px;
+            line-height: 24px;
+            font-size: 13px;
+            margin-bottom: 10px;
+            background: url(./img/img.png) no-repeat;
+            padding-left: 20px;
+            margin-left: 20px;
+            background-color: #fFF;
+            color: red;
+            background-position: 0 -47px;
+            display: none;
+
+        }
+
+        .box2 {
+            height: 24px;
+            line-height: 24px;
+            margin-bottom: 10px;
+
+
+        }
+
+        .lable {
+            width: 460px;
+            height: 20px;
+           text-align: center;
+            display: block;
+            margin-left: 20px;
+            line-height: 20px;
+            overflow: hidden;
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        label>input {
+            position: absolute;
+            bottom: 0px;
+
+
+        }
+
+        .ico {
+            width: 480px;
+            height: 56px;
+            text-align: center;
+
+        }
+
+        .ico>input {
+            display: inline-block;
+            vertical-align: top;
+            height: 56px;
+            border-radius: 28px;
+            line-height: 56px;
+            font-size: 24px;
+            color: #fff;
+            font-family: PingFang SC, "Hiragino Sans GB", "å†¬é’é»‘ä½“", "Microsoft Yahei", "å¾®è½¯é›…é»‘";
+            background: #ea5d4e;
+            cursor: pointer;
+            border: 0px;
+            width: 240px;
+            outline: none;
+
+
+        }
+
+        .nav {
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .nav-x {
+            width: 100%;
+            height: 38px;
+            padding-bottom: 20px;
+            text-align: center;
+            line-height: 38px;
+            color: #ea5d4e;
+            font-size: 18px;
+          
+        }
+
+        .nav-x a {
+            color: #ea5d4e;
+            font-size: 18px;
+            font-weight: 600;
+
+        }
+        .nav-x a:hover{
+            text-decoration: underline #ea5d4e ;
+        }
+
+        .nav-y {
+            width: 100%;
+            height: 40px;
+            text-align: center;
+            font-size: 16px;
+            color: #999;
+            line-height: 40px;
+
+        }
+        .nav-rt{
+            text-align: center;
+            padding: 18px 0px;
+            width: 100%;
+            height: 48px;
+           
+            position: relative;
+
+        }
+        .nav-rt a{
+            float: left;
+            height: 48px;
+            background-image: url(./img/c2.png);
+            width: 48px;
+            background-color: #ff6700;
+            border-radius: 50%;
+            background-position: 0 0;
+            
+           
+
+        }
+        .nav-rt a:nth-child(1){
+          position: absolute;
+         left: 156px;
+
+
+        }
+        .nav-rt a:nth-child(2){
+            position: absolute;
+            background-image: url(./img/c2.png);
+            background-position: 96px 0;
+            left: 276px;
+        }
+        .nav-rt a:nth-child(3){
+            position: absolute;
+            background-image: url(./img/c2.png);
+            background-position: 48px 0;
+            left: 394px;
+
+        }
+        #abs{
+            display: block;
+            width: 100%;
+            height: 38px;
+            padding-bottom: 28px;
+            font-size: 14px;
+            line-height: 14px;
+            line-height: 38px;
+            text-align: center;
+            color: #9c9a9E;
+        }
+       #abs:hover{
+         
+           text-decoration: underline #ea5d4e ;
+       }
+      .header-x ul li a:hover{
+          color: #fff;
+      }
+    </style>
+    <script>
+        window.onload = function () {
+            function $(a) {
+
+                return document.getElementById(a);
+            }
+
+
+
+            $("none").style.display = "none"
+
+
+            $("input").onblur = function () {
+
+                input()
+
+
+
+            }
+
+            $("inputon").onblur = function () {
+
+                two()
+
+
+            }
+
+
+
+            function input() {
+
+                var inpu = $("input").value;
+
+                var inpu1 = $("none");
+
+                var reg = /^1[3-9][0-9]{9}$/;
+
+
+
+                if (reg.test(inpu) == false) {
+
+                    inpu1.style.display = "block"
+
+
+                    setTimeout(function () {
+
+                        inpu1.style.color = "red"
+
+                        inpu1.style.backgroundPosition = "0  -48px"
+
+
+                    }, 3000)
+
+                    return false;
+
+                } else {
+
+                    inpu1.style.display = "none"
+                }
+
+                return true;
+
+            }
+
+
+            function two() {
+
+                var inputon = $("inputon").value;
+
+                var noneon = $("noneon");
+
+
+                var reg = /^\d{4}$/;
+
+                if (reg.test(inputon) == false) {
+
+                    noneon.style.display = "block"
+
+
+                    setTimeout(function () {
+
+                        noneon.style.color = "red"
+
+                        noneon.style.backgroundPosition = "0  -48px"
+
+
+                    }, 3000)
+
+                    return false;
+
+                } else {
+
+                    noneon.style.display = "none"
+
+
+                }
+
+                return true;
+
+
+
+            }
+
+            $("button").onclick = function () {
+
+                button()
+
+
+            }
+
+
+            function button() {
+
+                if (input() == false && two() == false) {
+
+                    $("proto-x").style.display = "block"
+
+                    alert("资料填写错误，请写相关代码")
+
+                   
+                } else {
+
+                    $("proto-x").style.display = "none";
+
+                    var back=confirm("是否跳转登录界面")
+
+                    if(back){
+
+                        window.location.assign("./post.html")
+                    }
+
+                }
+
+
+
+
+            }
+            var boox1= $("boox1");
+
+            boox1.onclick=function(){
+
+                
+                $("button").disabled=false
+
+            }
+
+
+        }
+
+
+
+
+        
+
+    </script>
+</head>
+
+<body style="background-image: url(./img/style.jpg); background-size: cover;">
+    <div class="header">
+        <div class="header-x w clearfix">
+            <img src="./img/logo.gif" alt="" style="opacity: 0.5;border-radius: 10px;">
+
+            <ul class="img-list">
+                <li><a href="javascript:;">网站首页</a></li>
+                <li><a href="javascript:;">菜谱大全</a></li>
+                <li><a href="javascript:;">美食推荐</a></li>
+                <li><a href="javascript:;">美食视频</a></li>
+                <li><a href="javascript:;">健康饮食</a></li>
+                <li><a href="javascript:;">食材大全</a></li>
+                <li><a href="javascript:;">美食专题</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="mian">
+        欢迎来到吃货谷
+    </div>
+    <div class="getstyle">
+        <div class="getstyle-x">
+            <div class="getstyle-y">
+                <div class="proto">
+                    <h2>注册吃货谷</h2>
+                </div>
+                <div class="proto-x" id="proto-x">
+                    手机号或验证码没有输入
+                </div>
+                <div class="form">
+                    <form action="javascript:;">
+                        <input type="text" id="input" value="请输入手机号" style="color:#757575;">
+                        <div class="box1">
+                            <div id="none">请输入正确的手机号码</div>
+                        </div>
+                        <input type="text" id="inputon" value="请输入验证码" style="color:#757575;"><a href="javascript:;" id="footer">获取验证码</a>
+                        <div class="box2" id="box2">
+                            <div id="noneon">验证码错误</div>
+                        </div>
+                    </form>
+                    <br>
+                    <label class="lable">
+                        <input type="checkbox" name="" id="boox1">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 我已阅读并且同意美食杰 <a href="javascript:;"
+                            style="color: red;">《用户协议》</a> 和 <a href="javascript" style="color: red;">《隐私政策》</a>
+                    </label>
+                    <div class="ico">
+                        <input type="button" value="注册" id="button" disabled="disabled">
+                    </div>
+                </div>
+            </div>
+            <div class="nav">
+                <div class="nav-x">
+                    <a href="javascript:;"  >已有账号 ？立即登录</a>
+                </div>
+                <div class="nav-y">
+                    ————————　使用第三方登录　————————
+                </div>
+                <div class="nav-rt">
+                    <a href="javascript:;"></a>
+                    <a href="javascript:;"></a>
+                    <a href="javascript:;"></a>
+                </div>
+                <a href="javascript:;" id="abs">更多第三方登录</a>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>

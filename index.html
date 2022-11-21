@@ -1,0 +1,1522 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<!--请除默认样式-->
+	<link rel="stylesheet" href="./css/reset.css">
+	<!--引入主页样式表-->
+	<link rel="stylesheet" href="./css/index.css">
+	<!--引入公共样式-->
+	<link rel="stylesheet" href="./css/base.css">
+	<!--引入字体-->
+	<link rel="stylesheet" href="./font/font_1680245_9cqtpmnz1mj/iconfont.css">
+
+	<link rel="icon" href="./favicon.ico">
+
+	<link rel="stylesheet" href="./font/font_1917699_29ey3shf036/iconfont.css">
+	<title>人生</title>
+</head>
+<script src="./js/move.js"></script>
+<script>
+	window.onload = function () {
+
+		var imgLister = document.getElementById("imgLister");
+
+		var imgLi = imgLister.getElementsByTagName("img");
+
+		imgLister.style.width = (imgLi.length) * 1000 + "px"
+
+
+		var navDiv = document.getElementById("navDiv");
+
+		var aAll = navDiv.getElementsByTagName("a");
+
+		aAll[0].style.borderColor = "#FF6767";
+
+		var index = 0;
+
+		for (var i = 0; i < aAll.length; i++) {
+			aAll[i].num = i;
+
+			aAll[i].onclick = function () {
+
+				index = this.num
+
+				imgLister.style.left = index * -1000 + "px";
+
+				set();
+			};
+		}
+
+		book();
+
+		function book() {
+
+			setInterval(function () {
+
+				index++;
+
+				if (index >= imgLi.length) {
+
+					index = 0;
+
+				}
+
+
+				move(imgLister, "left", -1000 * index, 2000, function () {
+					set();
+				});
+
+
+			}, 5000);
+
+
+
+		}
+
+		function set() {
+
+			if (index >= imgLi.length - 1) {
+
+				index = 0;
+
+				imgLister.style.left = 0;
+
+			}
+
+			for (var i = 0; i < aAll.length; i++) {
+
+				aAll[i].style.borderColor = "";
+				//alert("4")
+
+			}
+
+			aAll[index].style.borderColor = "#FF6767"
+
+		};
+
+
+		var buttonS = document.querySelector(".button-x");
+
+		var buttony = document.querySelector(".button-y");
+
+		buttonS.onclick = function () {
+
+			index--;
+
+			if (index <= 0) {
+
+				index = imgLi.length - 1;
+
+				mgLister.style.left = -5000 + "px"
+
+			}
+
+			imgLister.style.left = index * -1000 + "px";
+
+
+			set();
+		};
+
+		buttony.onclick = function () {
+
+			index++;
+
+			imgLister.style.left = index * -1000 + "px";
+
+
+			set();
+
+
+		};
+
+		var top = document.getElementById("gotop");
+		//滚动一屏幕时显示回到顶部
+		window.onscroll = function () {
+			var currentPosition = document.documentElement.scrollTop || document.body.scrollTop;
+			currentPosition > 100 ? top.style.display = "block" : top.style.display = "none";
+		};
+		top.onclick = GoTop;
+		function GoTop() {
+			var timer = setInterval(function () {
+				var currentPosition = document.documentElement.scrollTop || document.body.scrollTop;
+				currentPosition -= 100;
+				if (currentPosition > 0) {
+					window.scrollTo(0, currentPosition);
+				}
+				else {
+					window.scrollTo(0, 0);
+					clearInterval(timer);
+				}
+			}, 10);
+		}
+
+		var number = 0;
+
+		var arrAum = ["最新菜谱", "每小时最热门菜谱", "每小时最热门菜谱", "一周热门菜谱推荐"];
+		// 标题
+		var h2 = document.getElementById("h2");
+
+
+		var currentY = document.getElementById("current-y");
+
+
+		var currentAll = currentY.getElementsByTagName("a");
+
+
+		//轮播图
+		var holderY = document.querySelector(".holder-y")
+
+		var holderUl = holderY.getElementsByTagName("ul");
+
+		holderY.style.width = holderUl.length * 1000 + "px"
+
+		auto()
+
+		function fun() {
+
+			if (number >= currentAll.length - 1) {
+
+				number = 0;
+
+				holderY.style.left = "0"
+
+			}
+
+			for (var i = 0; i < currentAll.length - 1; i++) {
+				currentAll[i].style.color = "#666"
+			}
+
+			currentAll[number].style.color = "red"
+
+			h2.innerHTML = arrAum[number]
+		}
+
+
+		function auto() {
+
+			setInterval(function () {
+				number++
+
+				fun()
+
+				move(holderY, "left", -1000 * number, 50000);
+
+			}, 8000);
+
+
+
+
+		}
+
+
+
+
+
+
+		function $(a) {
+
+			return document.getElementById(a);
+		}
+
+		var picAll = $("picAll-x").getElementsByTagName("a");
+
+		var picArray = ['<a href="javascrit:;"><span>&nbsp;&nbsp;&nbsp;&nbsp;<i class="iconfont">&#xe635;</i> &nbsp;&nbsp;西瓜</span><img src="./img/q1.jpg" alt=""></a>', '<a href="javascrit:;"><span>&nbsp;&nbsp;&nbsp;&nbsp;<i class="iconfont">&#xe635;</i> &nbsp;&nbsp;桃子</span><img src="./img/q2.jpg" alt=""></a>'
+			, ' <a href="javascrit:;"><span>&nbsp;&nbsp;&nbsp;&nbsp;<i class="iconfont">&#xe635;</i> &nbsp;&nbsp;哈密瓜</span><img src="./img/q3.jpg" alt=""></a>', '<a href="javascrit:;"><span>&nbsp;&nbsp;&nbsp;&nbsp;<i class="iconfont">&#xe635;</i> &nbsp;&nbsp;葡萄</span><img src="./img/q4.jpg" alt=""></a>', '<a href="javascrit:;"><span>&nbsp;&nbsp;&nbsp;&nbsp;<i class="iconfont">&#xe635;</i> &nbsp;&nbsp;芒果</span><img src="./img/q5.jpg" alt=""></a>',
+			' <a href="javascrit:;"><span>&nbsp;&nbsp;&nbsp;&nbsp;<i class="iconfont">&#xe635;</i> &nbsp;&nbsp;甜瓜</span><img src="./img/q6.jpg" alt=""></a>', '<a href="javascrit:;"><span>&nbsp;&nbsp;&nbsp;&nbsp;<i class="iconfont">&#xe635;</i> &nbsp;&nbsp;李子</span><img src="./img/q7.jpg" alt=""></a>',
+			'<a href="javascrit:;"><span>&nbsp;&nbsp;&nbsp;&nbsp;<i class="iconfont">&#xe635;</i> &nbsp;&nbsp;香蕉</span><img src="./img/q8.jpg" alt=""></a> '];
+
+
+		var picArray1 = [' <a href="javascrit:;"><span>&nbsp;&nbsp;&nbsp;&nbsp;<i class="iconfont">&#xe635;</i> &nbsp;&nbsp;西红柿</span><img src="./img/x1.jpg" alt=""></a>', '<a href="javascrit:;"><span>&nbsp;&nbsp;&nbsp;&nbsp;<i class="iconfont">&#xe635;</i> &nbsp;&nbsp;豇豆</span><img src="./img/x2.jpg" alt=""></a> ', '<a href="javascrit:;"><span>&nbsp;&nbsp;&nbsp;&nbsp;<i class="iconfont">&#xe635;</i> &nbsp;&nbsp;苦瓜</span><img src="./img/x3.jpg" alt=""></a>',
+			'<a href="javascrit:;"><span>&nbsp;&nbsp;&nbsp;&nbsp;<i class="iconfont">&#xe635;</i> &nbsp;&nbsp;柿子椒</span><img src="./img/x4.jpg" alt=""></a>', '<a href="javascrit:;"><span>&nbsp;&nbsp;&nbsp;&nbsp;<i class="iconfont">&#xe635;</i> &nbsp;&nbsp;茄子</span><img src="./img/x5.jpg" alt=""></a>', '<a href="javascrit:;"><span>&nbsp;&nbsp;&nbsp;&nbsp;<i class="iconfont">&#xe635;</i> &nbsp;&nbsp;莴笋</span><img src="./img/x6.jpg" alt=""></a>',
+			' <a href="javascrit:;"><span>&nbsp;&nbsp;&nbsp;&nbsp;<i class="iconfont">&#xe635;</i> &nbsp;&nbsp;土豆</span><img src="./img/x7.jpg" alt=""></a>', ' <a href="javascrit:;"><span>&nbsp;&nbsp;&nbsp;&nbsp;<i class="iconfont">&#xe635;</i> &nbsp;&nbsp;丝瓜</span><img src="./img/x8.jpg" alt=""></a>'];
+
+		var picArray3 = ['<a href="javascrit:;"><span>&nbsp;&nbsp;&nbsp;&nbsp;<i class="iconfont">&#xe635;</i> &nbsp;&nbsp;薏米</span><img src="./img/v1.jpg" alt=""></a>', '<a href="javascrit:;"><span>&nbsp;&nbsp;&nbsp;&nbsp;<i class="iconfont">&#xe635;</i> &nbsp;&nbsp;赤小豆</span><img src="./img/v2.jpg" alt=""></a>', '<a href="javascrit:;"><span>&nbsp;&nbsp;&nbsp;&nbsp;<i class="iconfont">&#xe635;</i> &nbsp;&nbsp;燕麦</span><img src="./img/v3.jpg" alt=""></a>',
+			'<a href="javascrit:;"><span>&nbsp;&nbsp;&nbsp;&nbsp;<i class="iconfont">&#xe635;</i> &nbsp;&nbsp;绿豆</span><img src="./img/v4.jpg" alt=""></a>', '<a href="javascrit:;"><span>&nbsp;&nbsp;&nbsp;&nbsp;<i class="iconfont">&#xe635;</i> &nbsp;&nbsp;毛豆</span><img src="./img/v5.jpg" alt=""></a>', '<a href="javascrit:;"><span>&nbsp;&nbsp;&nbsp;&nbsp;<i class="iconfont">&#xe635;</i> &nbsp;&nbsp;核桃</span><img src="./img/v6.jpg" alt=""></a>', '<a href="javascrit:;"><span>&nbsp;&nbsp;&nbsp;&nbsp;<i class="iconfont">&#xe635;</i> &nbsp;&nbsp;玉米(鲜)</span><img src="./img/v7.jpg" alt=""></a>',
+			'<a href="javascrit:;"><span>&nbsp;&nbsp;&nbsp;&nbsp;<i class="iconfont">&#xe635;</i> &nbsp;&nbsp;花生</span><img src="./img/v8.jpg" alt=""></a>']
+
+
+
+		var picArray4 = ['<a href="javascrit:;"><span>&nbsp;&nbsp;&nbsp;&nbsp;<i class="iconfont">&#xe635;</i> &nbsp;&nbsp;黄鱼</span><img src="./img/m1.jpg" alt=""></a>', '<a href="javascrit:;"><span>&nbsp;&nbsp;&nbsp;&nbsp;<i class="iconfont">&#xe635;</i> &nbsp;&nbsp;草鱼</span><img src="./img/m2.jpg" alt=""></a>', '<a href="javascrit:;"><span>&nbsp;&nbsp;&nbsp;&nbsp;<i class="iconfont">&#xe635;</i> &nbsp;&nbsp;小龙虾</span><img src="./img/m3.jpg" alt=""></a>', '<a href="javascrit:;"><span>&nbsp;&nbsp;&nbsp;&nbsp;<i class="iconfont">&#xe635;</i> &nbsp;&nbsp;蛤蜊</span><img src="./img/m4.jpg" alt=""></a>', '<a href="javascrit:;"><span>&nbsp;&nbsp;&nbsp;&nbsp;<i class="iconfont">&#xe635;</i> &nbsp;&nbsp;虾</span><img src="./img/m5.jpg" alt=""></a>', '<a href="javascrit:;"><span>&nbsp;&nbsp;&nbsp;&nbsp;<i class="iconfont">&#xe635;</i> &nbsp;&nbsp;鸭</span><img src="./img/m6.jpg" alt=""></a>', '<a href="javascrit:;"><span>&nbsp;&nbsp;&nbsp;&nbsp;<i class="iconfont">&#xe635;</i> &nbsp;&nbsp;蛏子</span><img src="./img/m7.jpg" alt=""></a>', '<a href="javascrit:;"><span>&nbsp;&nbsp;&nbsp;&nbsp;<i class="iconfont">&#xe635;</i> &nbsp;&nbsp;皮皮虾</span><img src="./img/m8.jpg" alt=""></a>'];
+
+		picAll[0].style.backgroundColor="red"
+			picAll[0].style.color="#fff"
+
+
+		picAll[0].onmousemove = function () {
+
+			for (var o = 0; o <= 7; o++) {
+
+				$("picAll-y").children[o].innerHTML = picArray[o]
+
+			}
+
+			color()
+
+			picAll[0].style.backgroundColor="red"
+			picAll[0].style.color="#fff"
+
+			
+
+		}
+		picAll[1].onmousemove = function () {
+
+			for (var o = 0; o <= 7; o++) {
+
+				$("picAll-y").children[o].innerHTML = picArray1[o];
+
+			}
+
+			color()
+
+			picAll[1].style.backgroundColor="red"
+			picAll[1].style.color="#fff"
+
+
+		}
+
+		picAll[2].onmousemove = function () {
+
+			for (var o = 0; o <= 7; o++) {
+
+				$("picAll-y").children[o].innerHTML = picArray3[o];
+
+			}
+
+			color()
+
+			picAll[2].style.backgroundColor="red"
+			picAll[2].style.color="#fff"
+
+		}
+		picAll[3].onmousemove = function () {
+
+			for (var o = 0; o <= 7; o++) {
+
+				$("picAll-y").children[o].innerHTML = picArray4[o];
+
+			}
+
+			color()
+
+			picAll[3].style.backgroundColor="red"
+			picAll[3].style.color="#fff"
+
+		}
+
+
+		function color(){
+
+			for(var i=0;i<picAll.length;i++){
+
+				picAll[i].style.backgroundColor="#fff"
+				picAll[i].style.color="#000"
+
+
+			}
+
+
+
+		}
+
+	
+
+	
+
+
+
+	};
+
+
+
+
+
+</script>
+<body>
+	
+
+
+
+
+	<!--网页头部-->
+	<div class="header">
+		<!--网页头部内容-->
+
+		<div class="header-x w clearfix">
+			<!--网页顶部--->
+			<div class="clearfix">
+				<div>欢迎来到吃货谷！</div>
+
+				<ul class="header-y clearfix">
+					<!--注册链接-->
+					<li> <a href="register.html">注册</a> </li>
+
+					<li> <a href="post.html">登录</a></li>
+				</ul>
+
+			</div>
+			<div class="header-frist">
+				<!--首页logo-->
+				<div><a href="javascript:;"></a></div>
+
+				<div>
+					<form action="javascript:;"><input type="text" placeholder="想吃啥就吃啥"><button>搜索</button></form>
+					<div class="box1">
+						<a href="javascript:;">美食百科</a>&nbsp;&nbsp;&nbsp;
+						<a href="javascript:;">精选菜谱</a>&nbsp;&nbsp;&nbsp;
+						<a href="javascript:;">减肥</a>&nbsp;&nbsp;&nbsp;
+						<a href="javascript:;">红烧肉</a>&nbsp;&nbsp;&nbsp;
+						<a href="javascript:;">煲汤</a>
+					</div>
+				</div>
+			</div>
+
+
+		</div>
+
+	</div>
+	<!--导航条-->
+	<div class="nav-x">
+		<div class="nav-y w">
+			<ul class="nav-list">
+				<li><a href="javascript:;">网站首页</a></li>
+				<li><a href="javascript:;">菜谱大全</a></li>
+				<li><a href="javascript:;">美食推荐</a></li>
+				<li><a href="javascript:;">美食视频</a></li>
+				<li><a href="javascript:;">健康饮食</a></li>
+				<li><a href="javascript:;">食材大全</a></li>
+				<li><a href="javascript:;">美食专题</a></li>
+				<li class="jxcp"><a href="javascript:;">精选美食</a></li>
+				<li class="jxcp"><a href="javascript:;">最新菜谱</a></li>
+			</ul>
+
+
+
+		</div>
+	</div>
+	<div class="box" style="background-color: #FAE8C8;">
+	<div class="main-x w" id="outer">
+		<ul id="imgLister">
+			<li><a href="javascript:;"><img src="./img/轮1.png" alt=""></a></li>
+			<li><a href="javascript:;"><img src="./img/轮2.png" alt=""></a></li>
+			<li><a href="javascript:;"><img src="./img/轮3.png" alt=""></a></li>
+			<li><a href="javascript:;"><img src="./img/轮4.png" alt=""></a></li>
+			<li><a href="javascript:;"><img src="./img/轮5.png" alt=""></a></li>
+			<li><a href="javascript:;"><img src="./img/轮6.png" alt=""></a></li>
+			<li><a href="javascript:;"><img src="./img/轮1.png" alt=""></a></li>
+		</ul>
+
+		<div id="navDiv">
+			<a href="javascript:;"></a>
+			<a href="javascript:;"></a>
+			<a href="javascript:;"></a>
+			<a href="javascript:;"></a>
+			<a href="javascript:;"></a>
+			<a href="javascript:;"></a>
+		</div>
+
+		<div class="main-y">
+			<ul class="mian-v">
+				<li><a href="javascript:;"><i class="iconfont">&#xe627;</i>&nbsp;&nbsp; 菜谱大全 <i class="icon">></i> </a>
+				</li>
+				<li><a href="javascript:;"><i class="iconfont">&#xe61b;</i>&nbsp;&nbsp; 食材大全 <i class="icon">></i> </a>
+				</li>
+				<li><a href="javascript:;"><i class="iconfont">&#xe620;</i>&nbsp;&nbsp; 专题专区 <i class="icon">></i> </a>
+				</li>
+				<li><a href="javascript:;"><i class="iconfont">&#xe600;</i>&nbsp;&nbsp; 菜谱大全 <i class="icon">></i> </a>
+				</li>
+				<li><a href="javascript:;"><i class="iconfont">&#xe601;</i>&nbsp;&nbsp; 一起红 <i class="icon">></i> </a>
+				</li>
+
+			</ul>
+		</div>
+		<div class="button">
+			<div class="button-x"></div>
+			<div class="button-y"></div>
+		</div>
+	</div>
+
+	<div class="part w ">
+		<div class="par-w">
+			<ul class="partSpan">
+				<li>
+					<h2><a href="javascript:;">牛肚的家常做法</a></h2>
+					<p>
+						<span>
+							愤怒的muming的菜单</span>
+						</br>
+
+						这才是爆炒牛肚的好吃做法，在家自己做，再配一锅米饭，鲜香味美，超级下饭！
+					</p>
+				</li>
+				<li>
+					<h2><a href="javascript:;">小满养生季，先将肥油忌</a></h2>
+					<p>
+						<span>
+							小美的菜单 </span>
+						</br>
+
+						炎热夏季的开始，当人们生活无规律，饮食不定或过食辛辣油腻之时，就会产生内热，如口
+					</p>
+				</li>
+				<li>
+					<h2><a href="javascript:;">夏至养生，饮食宜清淡</a></h2>
+					<p>
+						<span>
+							小美 </span>
+						</br>
+
+						夏至后，饮食要以清泄暑热、增进食欲为目的，因此要多吃苦味食物，宜清补。
+					</p>
+				</li>
+
+			</ul>
+		</div>
+
+	</div>
+
+	<div class="radious" id="gotop">
+		<a href="#div" title="点击返回顶部"></a>
+	</div>
+
+	<div class="current w clearfix">
+		<div class="current-x">
+			<h2 id="h2">最新菜谱</h2>
+			<div class="current-y" id="current-y">
+				<a href="javascript:;">最新：</a><span>| 最热</span>
+				<a href="javascript:;">一小时</a>
+				<a href="javascript:;">今日</a>
+				<a href="javascript:;">七日</a>
+				<span><a href="javascript:;">更多菜谱 ></a></span>
+			</div>
+		</div>
+		<div class="holder">
+			<div class="holder-y">
+				<ul class="holder-x">
+					<li>
+						<a href="javascript:;">
+							<img src="./img/proto1.jpg" alt="">
+
+							<div class="pen">
+								<div>
+									<h4>老干妈炒饭</h4>
+									<p>
+										0评论 343人气
+										<br>
+
+										<span>colold(来自腾讯)</span>
+									</p>
+								</div>
+								<div>
+									<p>
+										<i class="iconfont" style="color:#C27C46;">&#xe607</i>&nbsp;&nbsp;8步/ 大概五分钟
+										<br>
+										<i class="iconfont"
+											style="color:red; font-size: 16px;">&#xe602;</i>&nbsp;&nbsp;抄/ 香辣味
+									</p>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;">
+							<img src="img/d6.jpg" alt="">
+
+							<div class="pen">
+								<div>
+									<h4>杨梅泥之风生水起凉面</h4>
+									<p>
+										0评论 0人气
+										<br>
+
+										<span>colold洋娃娃的春天</span>
+									</p>
+								</div>
+								<div>
+									<p>
+										<i class="iconfont" style="color:#C27C46;">&#xe607</i>&nbsp;&nbsp;6步/ 大概五分钟
+										<br>
+										<i class="iconfont"
+											style="color:red; font-size: 16px;">&#xe602;</i>&nbsp;&nbsp;拌/ 酸甜味
+									</p>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;">
+							<img src="img/d7.jpg" alt="">
+
+							<div class="pen">
+								<div>
+									<h4>甜饼</h4>
+									<p>
+										3评论 0人气
+										<br>
+
+										<span>我虾米来了</span>
+									</p>
+								</div>
+								<div>
+									<p>
+										<i class="iconfont" style="color:#C27C46;">&#xe607</i>&nbsp;&nbsp;7步/ 大概十五分钟
+										<br>
+										<i class="iconfont"
+											style="color:red; font-size: 16px;">&#xe602;</i>&nbsp;&nbsp;烘焙/ 甜味
+									</p>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;">
+							<img src="img/d12.jpg" alt="">
+
+							<div class="pen">
+								<div>
+									<h4>蜜汁焗鸡腿</h4>
+									<p>
+										1评论 248人气
+										<br>
+
+										<span>预言7656</span>
+									</p>
+								</div>
+								<div>
+									<p>
+										<i class="iconfont" style="color:#C27C46;">&#xe607</i>&nbsp;&nbsp;9步/ 大概三十分钟
+										<br>
+										<i class="iconfont"
+											style="color:red; font-size: 16px;">&#xe602;</i>&nbsp;&nbsp;焗/ 其它口味
+									</p>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;">
+							<img src="img/d24.jpg" alt="">
+
+							<div class="pen">
+								<div>
+									<h4>素食卤大肠</h4>
+									<p>
+										0评论 0人气
+										<br>
+
+										<span>彤3640</span>
+									</p>
+								</div>
+								<div>
+									<p>
+										<i class="iconfont" style="color:#C27C46;">&#xe607</i>&nbsp;&nbsp;5步/ 大概十分钟
+										<br>
+										<i class="iconfont"
+											style="color:red; font-size: 16px;">&#xe602;</i>&nbsp;&nbsp;拌/ 酸甜味
+									</p>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;">
+							<img src="img/d14.jpg" alt="">
+
+							<div class="pen">
+								<div>
+									<h4>鱼香嫩豆腐</h4>
+									<p>
+										1评论 489人气
+										<br>
+
+										<span>寓言7887</span>
+									</p>
+								</div>
+								<div>
+									<p>
+										<i class="iconfont" style="color:#C27C46;">&#xe607</i>&nbsp;&nbsp;9步/ 大概十分钟
+										<br>
+										<i class="iconfont"
+											style="color:red; font-size: 16px;">&#xe602;</i>&nbsp;&nbsp;烧/ 鱼香味
+									</p>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;">
+							<img src="img/d16.jpg" alt="">
+
+							<div class="pen">
+								<div>
+									<h4>蜜汁鸡翅</h4>
+									<p>
+										83评论 490人气
+										<br>
+
+										<span>风意画</span>
+									</p>
+								</div>
+								<div>
+									<p>
+										<i class="iconfont" style="color:#C27C46;">&#xe607</i>&nbsp;&nbsp;10步/ 大概三十分钟
+										<br>
+										<i class="iconfont"
+											style="color:red; font-size: 16px;">&#xe602;</i>&nbsp;&nbsp;煮/ 咸鲜味
+									</p>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<div style="border-bottom: solid #ddd 2px;">
+							<span
+								style="color: black; font-size: 20px; line-height: 50px; margin-left: 20px;">热门栏目推荐</span>
+						</div>
+						<div class="fix">
+							<div class="fix-x">
+								<a href="javascirpt:;">最新菜谱</a> <a href="javascirpt:;">家常菜</a><br>
+								<a href="javascirpt:;">凉菜</a> <a href="javascirpt:;">素食</a><a
+									href="javascirpt:;">早餐</a><br>
+								<a href="javascirpt:;">乌发</a> <a href="javascirpt:;">高血压</a><a
+									href="javascirpt:;">烘焙</a><br>
+								<a href="javascirpt:;">韩国料理</a> <a href="javascirpt:;">川菜</a><br>
+								<a href="javascirpt:;">粤菜</a> <a href="javascirpt:;">湘菜</a> <a
+									href="javascirpt:;">甜点</a><br>
+								<a href="javascript:;" style="background-color: red;border: red;">进入菜谱大全>></a>
+							</div>
+						</div>
+					</li>
+				</ul>
+				<ul class="holder-x">
+					<li>
+						<a href="javascript:;">
+							<img src="img/d1.jpg" alt="">
+
+							<div class="pen">
+								<div>
+									<h4>焦糖奶酪布丁</h4>
+									<p>
+										0评论 343人气
+										<br>
+
+										<span>colold(来自腾讯)</span>
+									</p>
+								</div>
+								<div>
+									<p>
+										<i class="iconfont" style="color:#C27C46;">&#xe607</i>&nbsp;&nbsp;6步/ 大概三十分钟
+										<br>
+										<i class="iconfont"
+											style="color:red; font-size: 16px;">&#xe602;</i>&nbsp;&nbsp;烘焙/ 奶香味
+									</p>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;">
+							<img src="img/d17.jpg" alt="">
+
+							<div class="pen">
+								<div>
+									<h4>小猪曲奇</h4>
+									<p>
+										40评论 283人气
+										<br>
+
+										<span>风意画</span>
+									</p>
+								</div>
+								<div>
+									<p>
+										<i class="iconfont" style="color:#C27C46;">&#xe607</i>&nbsp;&nbsp;14步/ 大概十五分钟
+										<br>
+										<i class="iconfont"
+											style="color:red; font-size: 16px;">&#xe602;</i>&nbsp;&nbsp;烤/ 甜味
+									</p>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;">
+							<img src="img/d18.jpg" alt="">
+
+							<div class="pen">
+								<div>
+									<h4>牛油果香蕉思慕雪</h4>
+									<p>
+										14评论 242人气
+										<br>
+
+										<span>风意画</span>
+									</p>
+								</div>
+								<div>
+									<p>
+										<i class="iconfont" style="color:#C27C46;">&#xe607</i>&nbsp;&nbsp;8步/ 大概十分钟
+										<br>
+										<i class="iconfont"
+											style="color:red; font-size: 16px;">&#xe602;</i>&nbsp;&nbsp;其它工艺/ 甜味
+									</p>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;">
+							<img src="img/d19.jpg" alt="">
+
+							<div class="pen">
+								<div>
+									<h4>香肠飞饼卷</h4>
+									<p>
+										26评论 339人气
+										<br>
+
+										<span>风意画</span>
+									</p>
+								</div>
+								<div>
+									<p>
+										<i class="iconfont" style="color:#C27C46;">&#xe607</i>&nbsp;&nbsp;9步/ 大概三十分钟
+										<br>
+										<i class="iconfont"
+											style="color:red; font-size: 16px;">&#xe602;</i>&nbsp;&nbsp;烤/ 咸鲜味
+									</p>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;">
+							<img src="img/d20.jpg" alt="">
+
+							<div class="pen">
+								<div>
+									<h4>玫瑰花馒头</h4>
+									<p>
+										30评论 292人气
+										<br>
+
+										<span>黄豆豆的一家</span>
+									</p>
+								</div>
+								<div>
+									<p>
+										<i class="iconfont" style="color:#C27C46;">&#xe607</i>&nbsp;&nbsp;5步/ 大概三十分钟
+										<br>
+										<i class="iconfont"
+											style="color:red; font-size: 16px;">&#xe602;</i>&nbsp;&nbsp;蒸/ 家常味
+									</p>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;">
+							<img src="img/d21.jpg" alt="">
+
+							<div class="pen">
+								<div>
+									<h4>驴打滚</h4>
+									<p>
+										31评论 304人气
+										<br>
+
+										<span>小马美食厨房</span>
+									</p>
+								</div>
+								<div>
+									<p>
+										<i class="iconfont" style="color:#C27C46;">&#xe607</i>&nbsp;&nbsp;5步/ 大概三十分钟
+										<br>
+										<i class="iconfont"
+											style="color:red; font-size: 16px;">&#xe602;</i>&nbsp;&nbsp;蒸/ 家常味
+									</p>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;">
+							<img src="img/d22.jpg" alt="">
+
+							<div class="pen">
+								<div>
+									<h4>花开富贵香肠菇</h4>
+									<p>
+										53评论 239人气
+										<br>
+
+										<span>Smile湘雨</span>
+									</p>
+								</div>
+								<div>
+									<p>
+										<i class="iconfont" style="color:#C27C46;">&#xe607</i>&nbsp;&nbsp;16步/ 大概十五分钟
+										<br>
+										<i class="iconfont"
+											style="color:red; font-size: 16px;">&#xe602;</i>&nbsp;&nbsp;蒸/ 咸鲜味
+									</p>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<div style="border-bottom: solid #ddd 2px;">
+							<span
+								style="color: black; font-size: 20px; line-height: 50px; margin-left: 20px;">热门栏目推荐</span>
+						</div>
+						<div class="fix">
+							<div class="fix-x">
+								<a href="javascirpt:;">最新菜谱</a> <a href="javascirpt:;">家常菜</a><br>
+								<a href="javascirpt:;">凉菜</a> <a href="javascirpt:;">素食</a><a
+									href="javascirpt:;">早餐</a><br>
+								<a href="javascirpt:;">乌发</a> <a href="javascirpt:;">高血压</a><a
+									href="javascirpt:;">烘焙</a><br>
+								<a href="javascirpt:;">韩国料理</a> <a href="javascirpt:;">川菜</a><br>
+								<a href="javascirpt:;">粤菜</a> <a href="javascirpt:;">湘菜</a> <a
+									href="javascirpt:;">甜点</a><br>
+								<a href="javascript:;" style="background-color: red;border: red;">进入菜谱大全>></a>
+							</div>
+						</div>
+					</li>
+				</ul>
+				<ul class="holder-x">
+					<li>
+						<a href="javascript:;">
+							<img src="img/d25.jpeg" alt="">
+
+							<div class="pen">
+								<div>
+									<h4>蓝莓芒果双味蛋挞</h4>
+									<p>
+										0评论 0人气
+										<br>
+
+										<span>爱生活的馋猫VIP</span>
+									</p>
+								</div>
+								<div>
+									<p>
+										<i class="iconfont" style="color:#C27C46;">&#xe607</i>&nbsp;&nbsp;9步/ 大概十五分钟
+										<br>
+										<i class="iconfont"
+											style="color:red; font-size: 16px;">&#xe602;</i>&nbsp;&nbsp;烤/ 甜味
+									</p>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;">
+							<img src="img/d27.jpg" alt="">
+
+							<div class="pen">
+								<div>
+									<h4>老婆饼</h4>
+									<p>
+										0评论 0人气
+										<br>
+
+										<span>爱生活的馋猫VIP</span>
+									</p>
+								</div>
+								<div>
+									<p>
+										<i class="iconfont" style="color:#C27C46;">&#xe607</i>&nbsp;&nbsp;16步/ 大概十五分钟
+										<br>
+										<i class="iconfont"
+											style="color:red; font-size: 16px;">&#xe602;</i>&nbsp;&nbsp;烘焙/ 家常味
+									</p>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;">
+							<img src="img/d32.jpg" alt="">
+
+							<div class="pen">
+								<div>
+									<h4>土豆鸡肉饼&nbsp;宝宝辅食食谱</h4>
+									<p>
+										0评论 0人气
+										<br>
+
+										<span>宝宝辅食达人</span>
+									</p>
+								</div>
+								<div>
+									<p>
+										<i class="iconfont" style="color:#C27C46;">&#xe607</i>&nbsp;&nbsp;9步/ 大概十分钟
+										<br>
+										<i class="iconfont"
+											style="color:red; font-size: 16px;">&#xe602;</i>&nbsp;&nbsp;烙/ 家常味
+									</p>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;">
+							<img src="img/d33.jpg" alt="">
+
+							<div class="pen">
+								<div>
+									<h4>蓝莓果酱慕斯</h4>
+									<p>
+										2评论 0人气
+										<br>
+
+										<span>可心yk</span>
+									</p>
+								</div>
+								<div>
+									<p>
+										<i class="iconfont" style="color:#C27C46;">&#xe607</i>&nbsp;&nbsp;12步/ 大概两小时
+										<br>
+										<i class="iconfont"
+											style="color:red; font-size: 16px;">&#xe602;</i>&nbsp;&nbsp;冻/ 奶香味
+									</p>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;">
+							<img src="img/d34.jpg" alt="">
+
+							<div class="pen">
+								<div>
+									<h4>抹茶夹心麻薯曲奇</h4>
+									<p>
+										1评论 0人气
+										<br>
+
+										<span>宅家吃货JACKERLU</span>
+									</p>
+								</div>
+								<div>
+									<p>
+										<i class="iconfont" style="color:#C27C46;">&#xe607</i>&nbsp;&nbsp;15步/ 大概六十分钟
+										<br>
+										<i class="iconfont"
+											style="color:red; font-size: 16px;">&#xe602;</i>&nbsp;&nbsp;烘焙/ 甜味
+									</p>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;">
+							<img src="img/d35.jpg" alt="">
+
+							<div class="pen">
+								<div>
+									<h4>胡萝卜炒黄豆</h4>
+									<p>
+										1评论 0人气
+										<br>
+
+										<span>纪元杰米3511912325</span>
+									</p>
+								</div>
+								<div>
+									<p>
+										<i class="iconfont" style="color:#C27C46;">&#xe607</i>&nbsp;&nbsp;9步/ 大概三十分钟
+										<br>
+										<i class="iconfont"
+											style="color:red; font-size: 16px;">&#xe602;</i>&nbsp;&nbsp;抄/ 家常味
+									</p>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;">
+							<img src="img/d36.jpg" alt="">
+
+							<div class="pen">
+								<div>
+									<h4>苞米枸杞糊</h4>
+									<p>
+										1评论 0人气
+										<br>
+
+										<span>纪元杰米311912325</span>
+									</p>
+								</div>
+								<div>
+									<p>
+										<i class="iconfont" style="color:#C27C46;">&#xe607</i>&nbsp;&nbsp;7步/ 大概三十分钟
+										<br>
+										<i class="iconfont"
+											style="color:red; font-size: 16px;">&#xe602;</i>&nbsp;&nbsp;榨汁/ 甜味
+									</p>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<div style="border-bottom: solid #ddd 2px;">
+							<span
+								style="color: black; font-size: 20px; line-height: 50px; margin-left: 20px;">热门栏目推荐</span>
+						</div>
+						<div class="fix">
+							<div class="fix-x">
+								<a href="javascirpt:;">最新菜谱</a> <a href="javascirpt:;">家常菜</a><br>
+								<a href="javascirpt:;">凉菜</a> <a href="javascirpt:;">素食</a><a
+									href="javascirpt:;">早餐</a><br>
+								<a href="javascirpt:;">乌发</a> <a href="javascirpt:;">高血压</a><a
+									href="javascirpt:;">烘焙</a><br>
+								<a href="javascirpt:;">韩国料理</a> <a href="javascirpt:;">川菜</a><br>
+								<a href="javascirpt:;">粤菜</a> <a href="javascirpt:;">湘菜</a> <a
+									href="javascirpt:;">甜点</a><br>
+								<a href="javascript:;" style="background-color: red;border: red;">进入菜谱大全>></a>
+							</div>
+						</div>
+					</li>
+				</ul>
+				<ul class="holder-x">
+					<li>
+						<a href="javascript:;">
+							<img src="img/d37.jpg" alt="">
+
+							<div class="pen">
+								<div>
+									<h4>清蒸虾</h4>
+									<p>
+										0评论 0人气
+										<br>
+
+										<span>Queen幸福滋味</span>
+									</p>
+								</div>
+								<div>
+									<p>
+										<i class="iconfont" style="color:#C27C46;">&#xe607</i>&nbsp;&nbsp;14步/ 大概六十分钟
+										<br>
+										<i class="iconfont"
+											style="color:red; font-size: 16px;">&#xe602;</i>&nbsp;&nbsp;煮/ 家常味
+									</p>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;">
+							<img src="img/d38.jpg" alt="">
+
+							<div class="pen">
+								<div>
+									<h4>海鲜饺子</h4>
+									<p>
+										0评论 0人气
+										<br>
+
+										<span>明儿小厨</span>
+									</p>
+								</div>
+								<div>
+									<p>
+										<i class="iconfont" style="color:#C27C46;">&#xe607</i>&nbsp;&nbsp;6步/ 大概十分钟
+										<br>
+										<i class="iconfont"
+											style="color:red; font-size: 16px;">&#xe602;</i>&nbsp;&nbsp;煮/ 家常味
+									</p>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;">
+							<img src="img/d39.jpg" alt="">
+
+							<div class="pen">
+								<div>
+									<h4>橘汁冰沙水晶粉</h4>
+									<p>
+										0评论 0人气
+										<br>
+
+										<span>草莓茶</span>
+									</p>
+								</div>
+								<div>
+									<p>
+										<i class="iconfont" style="color:#C27C46;">&#xe607</i>&nbsp;&nbsp;9步/ 大概十五分钟
+										<br>
+										<i class="iconfont"
+											style="color:red; font-size: 16px;">&#xe602;</i>&nbsp;&nbsp;煮/ 甜味
+									</p>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;">
+							<img src="img/d40.jpg" alt="">
+
+							<div class="pen">
+								<div>
+									<h4>腐乳酱鸡翅</h4>
+									<p>
+										0评论 0人气
+										<br>
+
+										<span>季元杰米3511912325</span>
+									</p>
+								</div>
+								<div>
+									<p>
+										<i class="iconfont" style="color:#C27C46;">&#xe607</i>&nbsp;&nbsp;10步/ 大概三十分钟
+										<br>
+										<i class="iconfont"
+											style="color:red; font-size: 16px;">&#xe602;</i>&nbsp;&nbsp;酱/ 酱香味
+									</p>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;">
+							<img src="img/d41.jpg" alt="">
+
+							<div class="pen">
+								<div>
+									<h4>酱香鸭肉</h4>
+									<p>
+										0评论 0人气
+										<br>
+
+										<span>纪元米杰3511912325</span>
+									</p>
+								</div>
+								<div>
+									<p>
+										<i class="iconfont" style="color:#C27C46;">&#xe607</i>&nbsp;&nbsp;9步/ 大概三十分钟
+										<br>
+										<i class="iconfont"
+											style="color:red; font-size: 16px;">&#xe602;</i>&nbsp;&nbsp;酱/ 酱香味
+									</p>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;">
+							<img src="img/d42.jpg" alt="">
+
+							<div class="pen">
+								<div>
+									<h4>大米红枣发糕</h4>
+									<p>
+										0评论 0人气
+										<br>
+
+										<span>暮色影子</span>
+									</p>
+								</div>
+								<div>
+									<p>
+										<i class="iconfont" style="color:#C27C46;">&#xe607</i>&nbsp;&nbsp;8步/ 大概六十分钟
+										<br>
+										<i class="iconfont"
+											style="color:red; font-size: 16px;">&#xe602;</i>&nbsp;&nbsp;蒸/ 酸甜味
+									</p>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;">
+							<img src="img/d43.jpg" alt="">
+
+							<div class="pen">
+								<div>
+									<h4>黄瓜鸡蛋大包子</h4>
+									<p>
+										1评论 0人气
+										<br>
+
+										<span>纪元杰米3511912325</span>
+									</p>
+								</div>
+								<div>
+									<p>
+										<i class="iconfont" style="color:#C27C46;">&#xe607</i>&nbsp;&nbsp;11步/ 大概三十分钟
+										<br>
+										<i class="iconfont"
+											style="color:red; font-size: 16px;">&#xe602;</i>&nbsp;&nbsp;蒸/ 家常味
+									</p>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<div style="border-bottom: solid #ddd 2px;">
+							<span
+								style="color: black; font-size: 20px; line-height: 50px; margin-left: 20px;">热门栏目推荐</span>
+						</div>
+						<div class="fix">
+							<div class="fix-x">
+								<a href="javascirpt:;">最新菜谱</a> <a href="javascirpt:;">家常菜</a><br>
+								<a href="javascirpt:;">凉菜</a> <a href="javascirpt:;">素食</a><a
+									href="javascirpt:;">早餐</a><br>
+								<a href="javascirpt:;">乌发</a> <a href="javascirpt:;">高血压</a><a
+									href="javascirpt:;">烘焙</a><br>
+								<a href="javascirpt:;">韩国料理</a> <a href="javascirpt:;">川菜</a><br>
+								<a href="javascirpt:;">粤菜</a> <a href="javascirpt:;">湘菜</a> <a
+									href="javascirpt:;">甜点</a><br>
+								<a href="javascript:;" style="background-color: red;border: red;">进入菜谱大全>></a>
+							</div>
+						</div>
+					</li>
+				</ul>
+				<ul class="holder-x">
+					<li>
+						<a href="javascript:;">
+							<img src="./img/proto1.jpg" alt="">
+
+							<div class="pen">
+								<div>
+									<h4>老干妈炒饭</h4>
+									<p>
+										0评论 343人气
+										<br>
+
+										<span>colold(来自腾讯)</span>
+									</p>
+								</div>
+								<div>
+									<p>
+										<i class="iconfont" style="color:#C27C46;">&#xe607</i>&nbsp;&nbsp;8步/ 大概五分钟
+										<br>
+										<i class="iconfont"
+											style="color:red; font-size: 16px;">&#xe602;</i>&nbsp;&nbsp;抄/ 香辣味
+									</p>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;">
+							<img src="img/d6.jpg" alt="">
+
+							<div class="pen">
+								<div>
+									<h4>杨梅泥之风生水起凉面</h4>
+									<p>
+										0评论 0人气
+										<br>
+
+										<span>colold洋娃娃的春天</span>
+									</p>
+								</div>
+								<div>
+									<p>
+										<i class="iconfont" style="color:#C27C46;">&#xe607</i>&nbsp;&nbsp;6步/ 大概五分钟
+										<br>
+										<i class="iconfont"
+											style="color:red; font-size: 16px;">&#xe602;</i>&nbsp;&nbsp;拌/ 酸甜味
+									</p>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;">
+							<img src="img/d7.jpg" alt="">
+
+							<div class="pen">
+								<div>
+									<h4>甜饼</h4>
+									<p>
+										3评论 0人气
+										<br>
+
+										<span>我虾米来了</span>
+									</p>
+								</div>
+								<div>
+									<p>
+										<i class="iconfont" style="color:#C27C46;">&#xe607</i>&nbsp;&nbsp;7步/ 大概十五分钟
+										<br>
+										<i class="iconfont"
+											style="color:red; font-size: 16px;">&#xe602;</i>&nbsp;&nbsp;烘焙/ 甜味
+									</p>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;">
+							<img src="img/d12.jpg" alt="">
+
+							<div class="pen">
+								<div>
+									<h4>蜜汁焗鸡腿</h4>
+									<p>
+										1评论 248人气
+										<br>
+
+										<span>预言7656</span>
+									</p>
+								</div>
+								<div>
+									<p>
+										<i class="iconfont" style="color:#C27C46;">&#xe607</i>&nbsp;&nbsp;9步/ 大概三十分钟
+										<br>
+										<i class="iconfont"
+											style="color:red; font-size: 16px;">&#xe602;</i>&nbsp;&nbsp;焗/ 其它口味
+									</p>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;">
+							<img src="img/d24.jpg" alt="">
+
+							<div class="pen">
+								<div>
+									<h4>素食卤大肠</h4>
+									<p>
+										0评论 0人气
+										<br>
+
+										<span>彤3640</span>
+									</p>
+								</div>
+								<div>
+									<p>
+										<i class="iconfont" style="color:#C27C46;">&#xe607</i>&nbsp;&nbsp;5步/ 大概十分钟
+										<br>
+										<i class="iconfont"
+											style="color:red; font-size: 16px;">&#xe602;</i>&nbsp;&nbsp;拌/ 酸甜味
+									</p>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;">
+							<img src="img/d14.jpg" alt="">
+
+							<div class="pen">
+								<div>
+									<h4>鱼香嫩豆腐</h4>
+									<p>
+										1评论 489人气
+										<br>
+
+										<span>寓言7887</span>
+									</p>
+								</div>
+								<div>
+									<p>
+										<i class="iconfont" style="color:#C27C46;">&#xe607</i>&nbsp;&nbsp;9步/ 大概十分钟
+										<br>
+										<i class="iconfont"
+											style="color:red; font-size: 16px;">&#xe602;</i>&nbsp;&nbsp;烧/ 鱼香味
+									</p>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;">
+							<img src="img/d16.jpg" alt="">
+
+							<div class="pen">
+								<div>
+									<h4>蜜汁鸡翅</h4>
+									<p>
+										83评论 490人气
+										<br>
+
+										<span>风意画</span>
+									</p>
+								</div>
+								<div>
+									<p>
+										<i class="iconfont" style="color:#C27C46;">&#xe607</i>&nbsp;&nbsp;10步/ 大概三十分钟
+										<br>
+										<i class="iconfont"
+											style="color:red; font-size: 16px;">&#xe602;</i>&nbsp;&nbsp;煮/ 咸鲜味
+									</p>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<div style="border-bottom: solid #ddd 2px;">
+							<span
+								style="color: black; font-size: 20px; line-height: 50px; margin-left: 20px;">热门栏目推荐</span>
+						</div>
+						<div class="fix">
+							<div class="fix-x">
+								<a href="javascirpt:;">最新菜谱</a> <a href="javascirpt:;">家常菜</a><br>
+								<a href="javascirpt:;">凉菜</a> <a href="javascirpt:;">素食</a><a
+									href="javascirpt:;">早餐</a><br>
+								<a href="javascirpt:;">乌发</a> <a href="javascirpt:;">高血压</a><a
+									href="javascirpt:;">烘焙</a><br>
+								<a href="javascirpt:;">韩国料理</a> <a href="javascirpt:;">川菜</a><br>
+								<a href="javascirpt:;">粤菜</a> <a href="javascirpt:;">湘菜</a> <a
+									href="javascirpt:;">甜点</a><br>
+								<a href="javascript:;" style="background-color: red;border: red;">进入菜谱大全>></a>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="delay w">
+		<h5>七月，疏肝养心，清热消暑</h5>
+		<a href="javascrip:;" style="position: absolute;bottom: 50px;right: 0;">更多菜谱 >></a>
+	</div>
+	<div id="picAll " class="w" style="background-color: #fff;">
+		<ul id="picAll-x">
+			<li><a href="javascript:;">水果</a></li>
+			<li><a href="javascript:;">蔬菜</a></li>
+			<li><a href="javascript:;">五谷</a></li>
+			<li><a href="javascript:;">生鲜</a></li>
+		</ul>
+		<div id="picAll-y">
+			<a href="javascrit:;"><span>&nbsp;&nbsp;&nbsp;&nbsp;<i class="iconfont">&#xe635;</i>
+					&nbsp;&nbsp;西瓜</span><img src="./img/q1.jpg" alt=""></a>
+			<a href="javascrit:;"><span>&nbsp;&nbsp;&nbsp;&nbsp;<i class="iconfont">&#xe635;</i>
+					&nbsp;&nbsp;桃子</span><img src="./img/q2.jpg" alt=""></a>
+			<a href="javascrit:;"><span>&nbsp;&nbsp;&nbsp;&nbsp;<i class="iconfont">&#xe635;</i>
+					&nbsp;&nbsp;哈密瓜</span><img src="./img/q3.jpg" alt=""></a>
+			<a href="javascrit:;"><span>&nbsp;&nbsp;&nbsp;&nbsp;<i class="iconfont">&#xe635;</i>
+					&nbsp;&nbsp;葡萄</span><img src="./img/q4.jpg" alt=""></a>
+			<a href="javascrit:;"><span>&nbsp;&nbsp;&nbsp;&nbsp;<i class="iconfont">&#xe635;</i>
+					&nbsp;&nbsp;芒果</span><img src="./img/q5.jpg" alt=""></a>
+			<a href="javascrit:;"><span>&nbsp;&nbsp;&nbsp;&nbsp;<i class="iconfont">&#xe635;</i>
+					&nbsp;&nbsp;甜瓜</span><img src="./img/q6.jpg" alt=""></a>
+			<a href="javascrit:;"><span>&nbsp;&nbsp;&nbsp;&nbsp;<i class="iconfont">&#xe635;</i>
+					&nbsp;&nbsp;李子</span><img src="./img/q7.jpg" alt=""></a>
+			<a href="javascrit:;"><span>&nbsp;&nbsp;&nbsp;&nbsp;<i class="iconfont">&#xe635;</i>
+					&nbsp;&nbsp;香蕉</span><img src="./img/q8.jpg" alt=""></a>
+		</div>
+	</div>
+	 <div class="footer-x">
+		<a href="javascript:;" id="index"></a>
+		<span>
+			© 2014-2019 吃货谷 All Rights Reserved.<br>
+		湘ICP备16009328号-1
+		</span>
+
+	 </div>
+	</div>
+	<div class="nmnm"></div>
+
+
+</body>
+</html>

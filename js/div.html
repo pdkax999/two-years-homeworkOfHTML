@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        Html{
+            perspective: 800px;
+        }
+        body{
+            border: 1px solid black;
+            background-color: blue;
+        }
+        .box1{
+            width: 200px;
+            height: 200px;
+            background-color: #bfa;
+            margin: 200px auto;
+            transition: 2s;
+        }
+
+body:hover .box1{
+
+   transform: translateY(-4px);
+    background-color: red;
+
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+</body>
+</html>

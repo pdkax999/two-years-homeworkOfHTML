@@ -1,0 +1,30 @@
+{
+  "id": "1917699",
+  "name": "人生",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "5529919",
+      "name": "火焰",
+      "font_class": "huoyan",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
+      "icon_id": "12048290",
+      "name": "正方形",
+      "font_class": "juxingbeifen",
+      "unicode": "e635",
+      "unicode_decimal": 58933
+    },
+    {
+      "icon_id": "14752501",
+      "name": "大厨帽 (1)",
+      "font_class": "dachumao1",
+      "unicode": "e607",
+      "unicode_decimal": 58887
+    }
+  ]
+}
